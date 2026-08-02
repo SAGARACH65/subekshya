@@ -40,6 +40,18 @@ test('profile section contains editable education, experience, and skills struct
   assert.match(html, /Replace these fields with your verified details/);
 });
 
+test('page exposes the living drawing and mobile navigation structures', async () => {
+  const html = await readFile(resolve(root, 'index.html'), 'utf8');
+
+  for (const hook of [
+    'data-intro', 'data-intro-line', 'data-reticle', 'data-datum',
+    'data-datum-label', 'data-hero', 'data-parallax', 'data-menu-toggle',
+    'id="mobile-menu"', 'data-mobile-menu', 'aria-controls="mobile-menu"'
+  ]) {
+    assert.ok(html.includes(hook), `missing interaction hook: ${hook}`);
+  }
+});
+
 test('all portfolio images are local, descriptive, dimensioned, and present', async () => {
   const html = await readFile(resolve(root, 'index.html'), 'utf8');
   const images = [...html.matchAll(/<img\s+[^>]*src="([^"]+)"[^>]*>/g)];
@@ -62,4 +74,11 @@ test('styles provide responsive, focus-visible, and reduced-motion states', asyn
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /--blueprint:\s*#274c77/i);
+
+  for (const pattern of [
+    /\.intro\b/, /\.menu-toggle\b/, /body\.menu-open/,
+    /\.drafting-reticle\b/, /\.page-datum\b/
+  ]) {
+    assert.match(css, pattern);
+  }
 });
