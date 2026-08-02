@@ -64,3 +64,32 @@ if ('IntersectionObserver' in window) {
 document.querySelectorAll('[data-year]').forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
+
+const filterButtons = [...document.querySelectorAll('[data-filter]')];
+const projectCards = [...document.querySelectorAll('[data-project]')];
+const filterStatus = document.querySelector('[data-filter-status]');
+
+const applyProjectFilter = (filter) => {
+  let visibleCount = 0;
+
+  projectCards.forEach((card) => {
+    const categories = card.dataset.category?.split(' ') ?? [];
+    const isVisible = filter === 'all' || categories.includes(filter);
+    card.hidden = !isVisible;
+    if (isVisible) visibleCount += 1;
+  });
+
+  filterButtons.forEach((button) => {
+    const isActive = button.dataset.filter === filter;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+
+  if (filterStatus) {
+    filterStatus.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'project' : 'projects'}`;
+  }
+};
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => applyProjectFilter(button.dataset.filter));
+});

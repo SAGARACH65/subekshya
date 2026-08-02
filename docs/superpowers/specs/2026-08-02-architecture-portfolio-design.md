@@ -30,9 +30,11 @@ A fine coordinate crosshair follows the pointer only over project imagery. On to
 2. Hero thesis with role, availability, and a generated fictional concept image.
 3. Short profile statement and capabilities.
 4. Three fictional case-study previews with distinct program, location, year, and concept copy.
-5. Process strip covering observation, drawing, making, and iteration.
-6. About/contact section with placeholder email and résumé action marked for replacement.
-7. Minimal footer with the portfolio status and current year.
+5. A six-item project archive that combines the three featured studies with three additional fictional placeholders, giving future work a clear repeatable card structure.
+6. Process strip covering observation, drawing, making, and iteration.
+7. Profile section with education, experience, skills/software, languages, and recognition placeholders. No institution, employer, credential, proficiency, or award may be invented.
+8. About/contact section with placeholder email and résumé action marked for replacement.
+9. Minimal footer with the portfolio status and current year.
 
 ## Content rules
 
@@ -41,6 +43,8 @@ A fine coordinate crosshair follows the pointer only over project imagery. On to
 - Avoid invented university names, awards, work history, software proficiency, or personal biography.
 - Use `hello@subekshya.com.np` as a visibly marked placeholder email.
 - Include a prominent note explaining that project imagery and text will be replaced with Subekshya’s own work.
+- Qualification rows must use direct editing prompts such as `Add university`, `Add degree`, and `Add dates` instead of fabricated résumé details.
+- The project archive must contain six visually complete cards, each marked `Placeholder project` and ready to replace through one image, title, type, year, and summary.
 
 ## Interaction and motion
 

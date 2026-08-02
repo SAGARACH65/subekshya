@@ -12,4 +12,6 @@ test('progressive enhancement exposes stable initialization hooks', async () => 
   assert.match(script, /IntersectionObserver/);
   assert.match(script, /pointermove/);
   assert.match(script, /prefers-reduced-motion/);
+  assert.match(script, /data-filter/);
+  assert.match(script, /data-project/);
 });
